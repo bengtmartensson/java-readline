@@ -24,7 +24,7 @@
 # Toplevel Makefile for Java-Readline
 #
 # $Author: bablokb $
-# $Revision: 1.18 $
+# $Revision: 1.19 $
 #
 
 TARGET    = libreadline-java
@@ -146,4 +146,4 @@ clean:
 	$(MAKE) -C src/native clean
 	-rm -fr `find . -name "*.o" -o -name "*~"` \
 		$(JAR) $(TARGET)-*.tar.*z* $(APIDIR) \
-		$(BUILDDIR) *.so .rltest_history
+		$(BUILDDIR) *.so *.rpm .rltest_history
