@@ -24,12 +24,12 @@
 # Makefile for JNI-library libJavaReadline.so
 #
 # $Author: Bablokb $
-# $Revision: 1.4 $
+# $Revision: 1.5 $
 #
 
 .PHONY: all clean
 
-SO := $(BUILDDIR)/libJavaReadline.so
+SO := $(ROOTDIR)/libJavaReadline.so
 
 all: $(SO)
 
