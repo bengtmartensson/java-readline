@@ -28,7 +28,7 @@ import java.io.*;
  uses native method calls if available, otherwise it defaults to normal
  I/O using a BufferedReader. 
 
- @version $Revision: 1.10 $
+ @version $Revision: 1.11 $
  @author  $Author: Bablokb $
 */
 
@@ -63,7 +63,12 @@ public class Readline {
   /////////////////////////////////////////////////////////////////////////////
 
   /**
-     Load an implementing backing library.
+     Load an implementing backing library. This method might throw an
+     UnsatisfiedLinkError in case the native libary is not found in the
+     library path.
+
+     @param lib An object (constant) of type ReadlineLibrary
+     @see org.gnu.readline.ReadlineLibrary
   */
 
   public static final void load(ReadlineLibrary lib) {
