@@ -24,7 +24,7 @@
 # Makefile for JNI-library libJava*.so
 #
 # $Author: bablokb $
-# $Revision: 1.12 $
+# $Revision: 1.13 $
 #
 
 export 
@@ -48,7 +48,9 @@ INCLUDES          = -I $(JAVAINCLUDE) -I $(JAVANATINC)
 LIBPATH           = -L/usr/lib/termcap 
 JavaReadline_LIBS = -lreadline -ltermcap -lhistory
 JavaEditline_LIBS = -ledit -ltermcap
+ifeq (cygwin,$(WIN32))
 JavaGetline_LIBS = -lcygwin
+endif
 CC = gcc
 OBJ_EXT := o
 LIB_PRE := lib
