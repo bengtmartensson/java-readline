@@ -1,7 +1,7 @@
 /**************************************************************************
 /* ReadlineTest.java -- Test program for the Java wrapper of GNU readline
 /*
-/* Java Wrapper Copyright (c) 1998 by Bernhard Bablok (bablokb@gmx.de)
+/* Java Wrapper Copyright (c) 1998 by Bernhard Bablok (mail@bablokb.de)
 /*
 /* This sample program is placed into the public domain and can be
 /* used or modified without any restriction.
@@ -36,7 +36,7 @@ import org.gnu.readline.*;
  * is read.
  *
  * @author $Author: Bablokb $
- * @version $Revision: 1.7 $
+ * @version $Revision: 1.8 $
  */
 
 public class ReadlineTest {
