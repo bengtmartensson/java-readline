@@ -22,9 +22,10 @@
 #***************************************************************************
 #
 # $Author: Bablokb $
-# $Revision: 1.3 $
+# $Revision: 1.4 $
 #
 
 include $(SRCROOT)/mkrules.inc
 
-$(PACKDIR)/Readline.class: $(PACKDIR)/ReadlineLibrary.class
+$(PACKDIR)/Readline.class: $(PACKDIR)/ReadlineLibrary.class \
+		$(PACKDIR)/UnsupportedMethodError.class	
