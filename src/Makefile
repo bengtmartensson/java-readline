@@ -22,7 +22,7 @@
 #***************************************************************************
 #
 # $Author: Bablokb $
-# $Revision: 1.1 $
+# $Revision: 1.2 $
 #
 
 SUBDIRS := $(shell find . -type d -not -name "." -not -name "CVS" -maxdepth 1)
@@ -36,3 +36,6 @@ $(SUBDIRS):
 	$(MAKE) -C $@
 
 clean:
+	for dir in $(SUBDIRS); do \
+		$(MAKE) -C $$dir clean; \
+	done
