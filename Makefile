@@ -24,7 +24,7 @@
 # Toplevel Makefile for Java-Readline
 #
 # $Author: Bablokb $
-# $Revision: 1.6 $
+# $Revision: 1.7 $
 #
 
 TARGET    := java_readline
@@ -44,6 +44,7 @@ PACKROOT  :=
 SUBDIRS    = src etc
 PACKAGES  := test org.gnu.readline
 BIN_ADD    = libJavaReadline.so $(APIDIR)
+SRC_ADD   := contrib
 MF_STUB   := etc/manifest.stub
 
 # native stuff
