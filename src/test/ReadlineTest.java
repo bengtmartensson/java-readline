@@ -36,7 +36,7 @@ import org.gnu.readline.*;
  * is read.
  *
  * @author $Author: Bablokb $
- * @version $Revision: 1.13 $
+ * @version $Revision: 1.14 $
  */
 
 public class ReadlineTest {
@@ -52,6 +52,7 @@ public class ReadlineTest {
 
   public static void main(String[] args) {
     String line;
+    Readline.setThrowErrorOnUnsupportedMethod(true);
     Readline.load(ReadlineLibrary.GnuReadline);
     Readline.initReadline("ReadLineTest"); // init, set app name, read inputrc
 
