@@ -36,7 +36,7 @@ import org.gnu.readline.*;
  * is read.
  *
  * @author $Author: Bablokb $
- * @version $Revision: 1.11 $
+ * @version $Revision: 1.12 $
  */
 
 public class ReadlineTest {
@@ -99,7 +99,7 @@ public class ReadlineTest {
 	  System.out.println("line = >" + line + "<");
       } catch (UnsupportedEncodingException enc) {
 	  System.err.println("caught UnsupportedEncodingException");
-      } catch (EOFException eof) {
+      } catch (IOException eof) {
         System.out.println();
 	try {
 	  Readline.writeHistoryFile(history.getName());
