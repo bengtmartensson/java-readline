@@ -24,7 +24,7 @@
 # Toplevel Makefile for Java-Readline
 #
 # $Author: bablokb $
-# $Revision: 1.17 $
+# $Revision: 1.18 $
 #
 
 TARGET    = libreadline-java
@@ -59,6 +59,14 @@ T_LIBS    = JavaReadline
 # Operating system dependent
 JAVAINCLUDE       = $(JAVA_HOME)/include
 JAVANATINC        = $(JAVA_HOME)/include/linux
+
+ifeq (MSC,$(WIN32))
+JAVA_HOME := c:/j2sdk1.4.0
+JAVANATINC = $(JAVA_HOME)/include/win32
+export PATH:=/cygdrive/$(subst :,,$(JAVA_HOME))/bin:/cygdrive/c/Programme/DevStudio/VC/bin:/cygdrive/c/Programme/DevStudio/SharedIDE/bin/:$(PATH)
+T_LIBS    = JavaGetline
+ARGS      = Getline
+endif
 
 ## normal javac
 JAVAC = javac
