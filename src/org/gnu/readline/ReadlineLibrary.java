@@ -24,8 +24,8 @@ package org.gnu.readline;
 /**
  This class implements a typesafe enumeration of the backing libraries.
 
- @version $Revision: 1.3 $
- @author  $Author: Bablokb $
+ @version $Revision: 1.4 $
+ @author  $Author: bablokb $
 */
 
 public final class ReadlineLibrary {
@@ -50,6 +50,13 @@ public final class ReadlineLibrary {
 
   public static final ReadlineLibrary Editline = 
     new ReadlineLibrary("JavaEditline");
+
+  /**
+     Constant for Getline implementation.
+  */
+
+  public static final ReadlineLibrary Getline = 
+    new ReadlineLibrary("JavaGetline");
 
   /**
      The name of the backing native library.
@@ -88,6 +95,8 @@ public final class ReadlineLibrary {
       return GnuReadline;
     else if (name.equals("Editline"))
       return Editline;
+    else if (name.equals("Getline"))
+      return Getline;
     else if (name.equals("PureJava"))
       return PureJava;
     return null;
