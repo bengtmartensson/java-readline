@@ -24,7 +24,7 @@
  * This file implements the native method interface for class
  * gnu.readline.Readline
  *
- * $Revision: 1.3 $
+ * $Revision: 1.4 $
  * $Author: Bablokb $
  */
 
@@ -293,6 +293,56 @@ JNIEXPORT void JNICALL Java_org_gnu_readline_Readline_installCompleter
     return;
   }
   rl_completion_entry_function = (Function*)java_completer;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Returns rl_completer_word_break_characters                                 */
+/* -------------------------------------------------------------------------- */
+
+JNIEXPORT jstring JNICALL Java_org_gnu_readline_Readline_getWordBreakCharacters
+  (JNIEnv * env, jclass class)
+{
+  jstring word_break_characters;
+
+  jniEnv = env;
+  if (rl_completer_word_break_characters == 0) {
+    word_break_characters =
+        (*jniEnv)->NewStringUTF(jniEnv, rl_basic_word_break_characters);
+  
+  } else {
+    word_break_characters =
+        (*jniEnv)->NewStringUTF(jniEnv, rl_completer_word_break_characters);
+  }
+
+  return word_break_characters;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sets rl_completer_word_break_characters                                    */
+/* -------------------------------------------------------------------------- */
+
+static char word_break_buffer[BUF_LENGTH];
+
+JNIEXPORT void JNICALL Java_org_gnu_readline_Readline_setWordBreakCharacters
+  (JNIEnv * env, jclass class, jstring jword_break_chars)
+{
+  const char * word_break_chars;
+  jboolean is_copy;
+  
+  word_break_chars = (*env)->GetStringUTFChars(env,jword_break_chars,&is_copy);
+  if (!utf2ucs(word_break_chars,word_break_buffer,BUF_LENGTH)) {
+    jclass newExcCls;
+    if (is_copy == JNI_TRUE)
+      (*env)->ReleaseStringUTFChars(env,jword_break_chars,word_break_chars);
+    newExcCls = (*env)->FindClass(env,"java/io/UnsupportedEncodingException");
+    if (newExcCls != NULL)
+      (*env)->ThrowNew(env,newExcCls,"");
+    return;
+  }
+  if (is_copy == JNI_TRUE)
+    (*env)->ReleaseStringUTFChars(env,jword_break_chars,word_break_chars);
+  
+  rl_completer_word_break_characters = word_break_buffer;
 }
 
 /* -------------------------------------------------------------------------- */
