@@ -29,7 +29,7 @@ import java.io.*;
  uses native method calls and might therefore not be portable to other 
  platforms.
 
- @version $Revision: 1.1 $
+ @version $Revision: 1.2 $
  @author  $Author: bablokb $
 */
 
@@ -59,5 +59,6 @@ public class Readline {
      @return The string the user entered
   */
 
-  public native static String readline(String prompt) throws EOFException;
+  public native static String readline(String prompt)
+                              throws EOFException, UnsupportedEncodingException;
 }
