@@ -54,7 +54,7 @@ while (true) {
  <p>Note that the fallback solution does not throw an EOFException, you
  therefore need some other means of deciding when to stop.
 
- @version $Revision: 1.15 $
+ @version $Revision: 1.16 $
  @author  $Author: Bablokb $
 */
 
@@ -137,8 +137,8 @@ public class Readline {
      @return The string the user entered
   */
 
-  public static String readline(String prompt)
-                            throws IOException, UnsupportedEncodingException {
+  public static String readline(String prompt) throws EOFException, 
+                                    IOException, UnsupportedEncodingException {
     if (iLib != ReadlineLibrary.PureJava)
       return readlineImpl(prompt);
     else {
