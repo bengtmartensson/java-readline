@@ -28,7 +28,7 @@ import java.io.*;
  uses native method calls and might therefore not be portable to other 
  platforms.
 
- @version $Revision: 1.7 $
+ @version $Revision: 1.8 $
  @author  $Author: Bablokb $
 */
 
@@ -131,8 +131,20 @@ public class Readline {
     
   private native static void installCompleter(ReadlineCompleter rlc);
     
+  /**
+     Query word break characters.
+  */
+    
   public native static String getWordBreakCharacters();
-  public native static void setWordBreakCharacters(String wordBreakCharacters)
+
+  /**
+     Set word break characters.
+
+     @param wordBreakCharacters A string of word break characters
+  */
+    
+  public native static void 
+    setWordBreakCharacters(String wordBreakCharacters)
                               throws UnsupportedEncodingException;
 
 }
