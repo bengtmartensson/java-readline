@@ -21,10 +21,8 @@
 #* Boston, MA  02111-1307 USA
 #***************************************************************************
 #
-# Makefile for the RRSystem
-#
 # $Author: Bablokb $
-# $Revision: 1.1 $
+# $Revision: 1.2 $
 #
 
 SUBDIRS := $(shell find . -type d -not -name "." -not -name "CVS" -maxdepth 1)
