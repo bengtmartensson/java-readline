@@ -24,7 +24,7 @@ package org.gnu.readline;
 /**
  This class implements a typesafe enumeration of the backing libraries.
 
- @version $Revision: 1.2 $
+ @version $Revision: 1.3 $
  @author  $Author: Bablokb $
 */
 
@@ -88,7 +88,7 @@ public final class ReadlineLibrary {
       return GnuReadline;
     else if (name.equals("Editline"))
       return Editline;
-    else if (name.equals("ureJava"))
+    else if (name.equals("PureJava"))
       return PureJava;
     return null;
   }
