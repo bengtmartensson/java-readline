@@ -11,6 +11,8 @@
 /* MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 /**************************************************************************/
 
+package test;
+
 /**
  * ReadlineTest.java
  * 
@@ -30,8 +32,8 @@
  * If an argument is given to ReadlineTest, a private initialization file
  * is read.
  *
- * @author $Author: bablokb $
- * @version $Revision: 1.4 $
+ * @author $Author: Bablokb $
+ * @version $Revision: 1.5 $
  */
 
 import java.io.*;
