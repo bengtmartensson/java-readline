@@ -22,7 +22,9 @@
 #***************************************************************************
 #
 # $Author: Bablokb $
-# $Revision: 1.2 $
+# $Revision: 1.3 $
 #
 
 include $(SRCROOT)/mkrules.inc
+
+$(PACKDIR)/Readline.class: $(PACKDIR)/ReadlineLibrary.class
