@@ -24,7 +24,7 @@
  * This file implements the native method interface for class
  * gnu.readline.Readline
  *
- * $Revision: 1.17 $
+ * $Revision: 1.18 $
  * $Author: bablokb $
  */
 
@@ -50,7 +50,7 @@
 #include <assert.h>
 #include <string.h>
 #include <errno.h>
-#ifndef WIN32
+#ifndef _MSC_VER
 #include <unistd.h>
 #endif
 
