@@ -66,7 +66,7 @@ import java.util.*;
 
 </pre>
 
- @version $Revision: 1.23 $
+ @version $Revision: 1.24 $
  @author  $Author: bablokb $
 */
 
@@ -203,7 +203,7 @@ public class Readline {
       if (iReader == null) {
 	if (iEncoding == null)
 	  iReader = new BufferedReader(new InputStreamReader(System.in));
-	else {
+	else
 	  iReader = new BufferedReader(
 	    new InputStreamReader(System.in, iEncoding));
       }
