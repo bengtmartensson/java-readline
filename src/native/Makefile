@@ -24,7 +24,7 @@
 # Makefile for JNI-library libJava*.so
 #
 # $Author: bablokb $
-# $Revision: 1.15 $
+# $Revision: 1.16 $
 #
 
 export 
@@ -89,7 +89,7 @@ OBJ_EXT := o
 LIB_PRE := lib
 LIB_EXT := jnilib
 CFLAGS   = -fPIC -DPOSIX
-LDFLAGS  = -dynamiclib -framework JavaVM
+LD_FLAGS = -dynamiclib -framework JavaVM
 
 INCLUDES          = -I/sw/include -I $(JAVAINCLUDE) -I $(JAVANATINC)
 LIBPATH           = -L/usr/lib -L/sw/lib
