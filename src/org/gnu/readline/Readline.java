@@ -28,7 +28,7 @@ import java.io.*;
  uses native method calls if available, otherwise it defaults to normal
  I/O using a BufferedReader. 
 
- @version $Revision: 1.13 $
+ @version $Revision: 1.14 $
  @author  $Author: Bablokb $
 */
 
@@ -134,7 +134,7 @@ public class Readline {
   */
 
   public static void readInitFile(String filename) throws IOException {
-    if (iLib != ReadlineLibrary.PureJava)
+    if (iLib == ReadlineLibrary.GnuReadline)
       readInitFileImpl(filename);
     else if (iThrowException)
       throw new UnsupportedOperationException();
@@ -151,7 +151,7 @@ public class Readline {
   */
 
   public static boolean parseAndBind(String line) {
-    if (iLib != ReadlineLibrary.PureJava)
+    if (iLib == ReadlineLibrary.GnuReadline)
       return parseAndBindImpl(line);
     else if (iThrowException)
       throw new UnsupportedOperationException();
