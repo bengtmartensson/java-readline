@@ -32,11 +32,12 @@ import org.gnu.readline.*;
  *$endif
  *</pre>
  *
- * If an argument is given to ReadlineTest, a private initialization file
- * is read.
+ * If one argument is given to ReadlineTest, a private initialization file
+ * is read. If a second argument is given, the appropriate library is
+ * loaded.
  *
  * @author $Author: Bablokb $
- * @version $Revision: 1.15 $
+ * @version $Revision: 1.16 $
  */
 
 public class ReadlineTest {
@@ -52,9 +53,17 @@ public class ReadlineTest {
 
   public static void main(String[] args) {
     String line;
-    Readline.setThrowExceptionOnUnsupportedMethod(true);
-    Readline.load(ReadlineLibrary.GnuReadline);
+    
+    // Readline.setThrowExceptionOnUnsupportedMethod(true);
+    
+    if (args.length > 1)
+      Readline.load(ReadlineLibrary.byName(args[1]));
+    else
+      Readline.load(ReadlineLibrary.GnuReadline);
+		    
+    System.out.println("initializing Readline...");
     Readline.initReadline("ReadLineTest"); // init, set app name, read inputrc
+    System.out.println("... done");
 
     try {
       if (args.length > 0)
