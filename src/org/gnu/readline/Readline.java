@@ -20,7 +20,7 @@
 /**************************************************************************/
  
 
-package gnu.readline;
+package org.gnu.readline;
 
 import java.io.*;
 
@@ -29,7 +29,7 @@ import java.io.*;
  uses native method calls and might therefore not be portable to other 
  platforms.
 
- @version $Revision: 1.3 $
+ @version $Revision: 1.4 $
  @author  $Author: bablokb $
 */
 

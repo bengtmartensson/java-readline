@@ -31,11 +31,11 @@
  * is read.
  *
  * @author $Author: bablokb $
- * @version $Revision: 1.3 $
+ * @version $Revision: 1.4 $
  */
 
 import java.io.*;
-import gnu.readline.*;
+import org.gnu.readline.*;
 
 public class ReadlineTest {
   
