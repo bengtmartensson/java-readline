@@ -23,15 +23,15 @@
 #
 # Makefile for JNI-library libJavaReadline.so
 #
-# $Author: bablokb $
-# $Revision: 1.1 $
+# $Author: Bablokb $
+# $Revision: 1.2 $
 #
 
 JAVAC = jikes
 JPATH = /usr/lib/java
 JTARGETDIR = $(HOME)/classes          # must be in CLASSPATH (javah!!)
 JAVAINCLUDE = $(JPATH)/include
-JAVANATINC = $(JPATH)/include/genunix
+JAVANATINC = $(JPATH)/include/linux
 INCLUDES= -I $(JAVAINCLUDE) -I $(JAVANATINC)
 LIBPATH = -L/usr/lib/termcap
 LIBS = -lreadline -ltermcap -lhistory
