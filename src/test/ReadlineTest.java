@@ -13,6 +13,9 @@
 
 package test;
 
+import java.io.*;
+import org.gnu.readline.*;
+
 /**
  * ReadlineTest.java
  * 
@@ -33,17 +36,19 @@ package test;
  * is read.
  *
  * @author $Author: Bablokb $
- * @version $Revision: 1.6 $
+ * @version $Revision: 1.7 $
  */
-
-import java.io.*;
-import org.gnu.readline.*;
 
 public class ReadlineTest {
   
   public ReadlineTest() {
     
   }
+
+  /**
+     Main entry point. The first argument can be a filename with an
+     application initialization file.
+  */
 
   public static void main(String[] args) {
     String line;
