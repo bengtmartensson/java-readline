@@ -24,7 +24,7 @@
 # Toplevel Makefile for Java-Readline
 #
 # $Author: bablokb $
-# $Revision: 1.15 $
+# $Revision: 1.16 $
 #
 
 TARGET    = libreadline-java
@@ -94,7 +94,7 @@ apidoc: $(APIDIR)
 	javadoc -sourcepath src -d $(APIDIR) -windowtitle $(WTITLE) \
                 -doctitle $(DTITLE) -footer $(DFOOTER) -header $(DHEADER) \
                 -bottom $(DBOTTOM) \
-                -version -author `find src -name "*.java"` 
+                -version -author org.gnu.readline test
 
 install: jar build-native apidoc
 	install -D $(JAR)    $(DESTDIR)$(JAVALIBDIR)/$(JAR)
