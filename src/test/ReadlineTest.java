@@ -36,8 +36,8 @@ import org.gnu.readline.*;
  * is read. If a second argument is given, the appropriate library is
  * loaded.
  *
- * @author $Author: Bablokb $
- * @version $Revision: 1.17 $
+ * @author $Author: bablokb $
+ * @version $Revision: 1.18 $
  */
 
 public class ReadlineTest {
@@ -90,7 +90,8 @@ public class ReadlineTest {
 
     // Set word break characters
     try {
-        Readline.setWordBreakCharacters(" \t;");
+      Readline.setVar(Readline.WORD_BREAK_CHARS," \t;");
+      Readline.setWordBreakCharacters(" \t;");
     }
     catch (UnsupportedEncodingException enc) {
         System.err.println("Could not set word break characters");
