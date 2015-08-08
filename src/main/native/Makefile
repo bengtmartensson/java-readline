@@ -27,9 +27,7 @@
 # $Revision: 1.16 $
 #
 
-export 
-
-.PHONY: org_gnu_readline_Readline.o
+export
 
 # OS-specific stuff   ---------------------------------------------------------
 
@@ -39,37 +37,40 @@ CC      := gcc
 OBJ_EXT := o
 LIB_PRE := lib
 LIB_EXT := so
-CFLAGS   = -fpic -DPOSIX
+CFLAGS   = -fpic -DPOSIX -Wall -O2
 LD_FLAGS = -shared
+#LTERMCAP = -ltermcap
+LTERMCAP =
 
 INCLUDES          = -I $(JAVAINCLUDE) -I $(JAVANATINC)
-LIBPATH           = -L/usr/lib/termcap 
+#LIBPATH           = -L/usr/lib/termcap
+LIBPATH           =
 
-JavaReadline_LIBS = -lreadline -ltermcap -lhistory
-JavaEditline_LIBS = -ledit -ltermcap
-JavaGetline_LIBS  = 
+JavaReadline_LIBS = -lreadline $(LTERMCAP) -lhistory
+JavaEditline_LIBS = -ledit $(LTERMCAP)
+JavaGetline_LIBS  =
 endif
 
 ifeq (CYGWIN,$(OS_FLAVOR))
 CC      := gcc
 OBJ_EXT := o
-LIB_PRE := 
+LIB_PRE :=
 LIB_EXT := dll
 CFLAGS  := -DWIN32
 LD_FLAGS = -shared
 
 INCLUDES          = -I $(JAVAINCLUDE) -I $(JAVANATINC)
-LIBPATH           = -L/usr/lib/termcap 
+LIBPATH           = -L/usr/lib/termcap
 
-JavaReadline_LIBS = -lreadline -ltermcap -lhistory
-JavaEditline_LIBS = -ledit -ltermcap
-JavaGetline_LIBS  = -ltermcap
+JavaReadline_LIBS = -lreadline $(LTERMCAP) -lhistory
+JavaEditline_LIBS = -ledit $(LTERMCAP)
+JavaGetline_LIBS  = $(LTERMCAP)
 endif
 
 ifeq (MSWIN,$(OS_FLAVOR))
 CC      := cl
 OBJ_EXT := obj
-LIB_PRE := 
+LIB_PRE :=
 LIB_EXT := dll
 CFLAGS  := -DWIN32
 LD_FLAGS = -LD
@@ -80,7 +81,7 @@ LIBPATH           =
 LIB               = "c:/Programme/DevStudio/VC/lib"
 JavaReadline_LIBS =
 JavaEditline_LIBS =
-JavaGetline_LIBS  = 
+JavaGetline_LIBS  =
 endif
 
 ifeq (MAC,$(OS_FLAVOR))
@@ -94,15 +95,15 @@ LD_FLAGS = -dynamiclib -framework JavaVM
 INCLUDES          = -I/sw/include -I $(JAVAINCLUDE) -I $(JAVANATINC)
 LIBPATH           = -L/usr/lib -L/sw/lib
 
-JavaReadline_LIBS = -lreadline -ltermcap -lhistory
-JavaEditline_LIBS = -ledit -ltermcap
-JavaGetline_LIBS  = 
+JavaReadline_LIBS = -lreadline $(LTERMCAP) -lhistory
+JavaEditline_LIBS = -ledit $(LTERMCAP)
+JavaGetline_LIBS  =
 endif
 
 # some constants, you should not need to change these variables   -------------
 
-ROOTDIR=../..
-BUILDDIR=$(ROOTDIR)/build
+ROOTDIR=../../..
+BUILDDIR=$(ROOTDIR)/target/classes
 OBJECTS := org_gnu_readline_Readline.$(OBJ_EXT)
 ifeq ($(TG),JavaGetline)
 OBJECTS += getline.$(OBJ_EXT)
@@ -110,9 +111,9 @@ endif
 
 # targets, finally ;-)   ------------------------------------------------------
 
-all: $(T_LIBS) 
+all: $(T_LIBS)
 
-lib: $(ROOTDIR)/$(LIB_PRE)$(TG).$(LIB_EXT)
+lib: $(LIB_PRE)$(TG).$(LIB_EXT)
 
 JavaReadline:
 	make TG=$@ lib
@@ -123,7 +124,7 @@ JavaEditline:
 JavaGetline:
 	make TG=$@ lib
 
-$(ROOTDIR)/$(LIB_PRE)$(TG).$(LIB_EXT): $(OBJECTS)
+$(LIB_PRE)$(TG).$(LIB_EXT): $(OBJECTS)
 ifeq (MSWIN,$(OS_FLAVOR))
 	$(CC) $(LD_FLAGS) $(OBJECTS) $(LIBPATH) $($(TG)_LIBS) -Fe$@
 endif
@@ -148,4 +149,7 @@ org_gnu_readline_Readline.h: $(BUILDDIR)/org/gnu/readline/Readline.class
 
 clean:
 	-rm -f org_gnu_readline_Readline.h \
-		org_gnu_readline_Readline.$(OBJ_EXT) getline.$(OBJ_EXT)
+		org_gnu_readline_Readline.$(OBJ_EXT) getline.$(OBJ_EXT) *.$(LIB_EXT)
+
+install:
+	install -m 0755 -t $(BINLIBDIR) *.$(LIB_EXT)

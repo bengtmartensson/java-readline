@@ -27,17 +27,17 @@
 # $Revision: 1.22 $
 #
 
-export 
+export
 
 # what to build   -------------------------------------------------------------
 
-T_LIBS    = JavaReadline
+T_LIBS    = JavaReadline JavaGetline
 
 # java-compiler flavor   ------------------------------------------------------
 
 ## normal javac
 JAVAC = javac
-JC_FLAGS = 
+JC_FLAGS =
 
 ## with jikes
 #JAVAC = jikes
@@ -46,11 +46,14 @@ JC_FLAGS =
 # installation directories   --------------------------------------------------
 
 PREFIX    = /usr
-BINLIBDIR = $(PREFIX)/lib
+#BINLIBDIR = $(PREFIX)/lib
+BINLIBDIR = $(PREFIX)/local/lib64
 DOCDIR    = $(PREFIX)/doc
 JAVALIBDIR= $(PREFIX)/share/java
 
 # OS-specific stuff   ---------------------------------------------------------
+
+JAVA_HOME = /usr/lib/jvm/java
 
 # Operating system/compiler dependent, default is LINUX.
 # Note that both CYGWIN and MSWIN use the cygwin-environment,
@@ -122,39 +125,28 @@ MF_STUB   = etc/manifest.stub
 VERSION         = `cat VERSION`
 JAR             = $(TARGET).jar
 APIDIR          = ./api
-BUILDDIR        = ./build
+BUILDDIR        = ./target/classes
 RPM_BASE        = `pwd`/$(BUILDDIR)/
 
 # targets, finally ;-)   ------------------------------------------------------
 
-world : jar build-native
+world : jar build-native apidoc
 
-jar: build-java
-	cd $(BUILDDIR) ; jar -cvmf ../$(MF_STUB) ../$(JAR) *
+jar:
+	mvn install
 
-$(JAR):
-	cd $(BUILDDIR) ; jar -cvmf ../$(MF_STUB) ../$(JAR) *
+build-native:  $(BUILDDIR)/org/gnu/readline/Readline.class
+	$(MAKE) -C src/main/native T_LIBS="$(T_LIBS)" JAVAINCLUDE="$(JAVAINCLUDE)" \
+		        OS_FLAVOR=$(OS_FLAVOR) JAVANATINC="$(JAVANATINC)" all
 
-build-java: $(BUILDDIR)
-	cd src ; $(MAKE) JAVAC="$(JAVAC)" JC_FLAGS="$(JC_FLAGS)" \
-		OS_FLAVOR=$(OS_FLAVOR) java
+apidoc:
+	mvn javadoc:javadoc
 
-build-native: 
-	cd src; $(MAKE) T_LIBS="$(T_LIBS)" JAVAINCLUDE="$(JAVAINCLUDE)" \
-		        OS_FLAVOR=$(OS_FLAVOR) JAVANATINC="$(JAVANATINC)" native
-
-apidoc: $(APIDIR)
-	javadoc -sourcepath src -d $(APIDIR) -windowtitle $(WTITLE) \
-                -doctitle $(DTITLE) -footer $(DFOOTER) -header $(DHEADER) \
-                -bottom $(DBOTTOM) \
-                -version -author org.gnu.readline test
+$(BUILDDIR)/org/gnu/readline/Readline.class:
+	mvn install
 
 install: jar build-native apidoc
-	install -D $(JAR)    $(DESTDIR)$(JAVALIBDIR)/$(JAR)
-	install -d $(DESTDIR)$(BINLIBDIR)
-	install  *.so        $(DESTDIR)$(BINLIBDIR)
-	install -d $(DESTDIR)$(DOCDIR)/$(TARGET)-$(VERSION)
-	cp -r api $(DESTDIR)$(DOCDIR)/$(TARGET)-$(VERSION)
+	make -C src/main/native install
 
 bin-dist: jar build-native apidoc
 	mkdir -p "$(TARGET)-$(VERSION)"
@@ -168,13 +160,10 @@ src-dist: clean
 	tar -czf $(TARGET)-$(VERSION)-src.tar.gz --exclude "CVS" "$(TARGET)-$(VERSION)"
 	rm -rf "$(TARGET)-$(VERSION)"
 
-$(APIDIR):
-	mkdir $(APIDIR)
-
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
 
-$(METADIR): 
+$(METADIR):
 	mkdir $(METADIR)
 
 rpm: src-dist
@@ -188,7 +177,5 @@ test: $(JAR) build-native
 	java  -Djava.library.path=. -jar $(JAR) src/test/tinputrc $(ARGS)
 
 clean:
-	$(MAKE) -C src/native clean
-	-rm -fr `find . -name "*.o" -o -name "*~"` \
-		$(JAR) $(TARGET)-*.tar.*z* $(APIDIR) \
-		$(BUILDDIR) *.so *.rpm .rltest_history
+	mvn clean
+	$(MAKE) -C src/main/native clean
