@@ -27,7 +27,7 @@ import java.util.*;
 /**
  This class implements basic functionality of the GNU-readline interface. It
  uses native method calls if available, otherwise it defaults to normal
- I/O using a BufferedReader. 
+ I/O using a BufferedReader.
 
  <p>A typical implementation could look like:
 <pre>
@@ -54,10 +54,10 @@ import java.util.*;
              System.out.println("no input");
          else
              processLine();
-     } 
+     }
      catch (EOFException e) {
          break;
-     } 
+     }
      catch (Exception e) {
          doSomething();
      }
@@ -81,11 +81,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_LIBRARY_VERSION = 
-    new ReadlineConstString(0, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_LIBRARY_VERSION =
+    new ReadlineConstString(0, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -98,11 +98,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_READLINE_NAME = 
-    new ReadlineConstString(1, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_READLINE_NAME =
+    new ReadlineConstString(1, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -115,11 +115,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Getline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_PROMPT = 
-    new ReadlineConstString(2, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_PROMPT =
+    new ReadlineConstString(2, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Getline});
 
 
@@ -133,11 +133,11 @@ public class Readline {
 	  <li>Editline</li>
 	  <li>Getline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_LINE_BUFFER = 
-    new ReadlineConstString(3, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_LINE_BUFFER =
+    new ReadlineConstString(3, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline,
        ReadlineLibrary.Editline, ReadlineLibrary.Getline});
 
@@ -150,11 +150,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_TERMINAL_NAME = 
-    new ReadlineConstString(4, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_TERMINAL_NAME =
+    new ReadlineConstString(4, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -166,11 +166,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
+
   public final static ReadlineConstString RL_EXECUTING_MACRO =
-    new ReadlineConstString(5, new ReadlineLibrary[] 
+    new ReadlineConstString(5, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -183,11 +183,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
+
   public final static ReadlineConstString RL_BASIC_WORD_BREAK_CHARACTERS =
-    new ReadlineConstString(6, new ReadlineLibrary[] 
+    new ReadlineConstString(6, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -200,11 +200,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_COMPLETER_WORD_BREAK_CHARACTERS = 
-    new ReadlineConstString(7, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_COMPLETER_WORD_BREAK_CHARACTERS =
+    new ReadlineConstString(7, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -217,11 +217,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_COMPLETER_QUOTE_CHARACTERS = 
-    new ReadlineConstString(8, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_COMPLETER_QUOTE_CHARACTERS =
+    new ReadlineConstString(8, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -233,11 +233,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_BASIC_QUOTE_CHARACTERS = 
-    new ReadlineConstString(9, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_BASIC_QUOTE_CHARACTERS =
+    new ReadlineConstString(9, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -249,11 +249,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_FILENAME_QUOTE_CHARACTERS = 
-    new ReadlineConstString(10, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_FILENAME_QUOTE_CHARACTERS =
+    new ReadlineConstString(10, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -266,11 +266,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString RL_SPECIAL_PREFIXES = 
-    new ReadlineConstString(11, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString RL_SPECIAL_PREFIXES =
+    new ReadlineConstString(11, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -282,11 +282,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString HISTORY_WORD_DELIMITERS = 
-    new ReadlineConstString(12, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString HISTORY_WORD_DELIMITERS =
+    new ReadlineConstString(12, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
   /**
@@ -297,11 +297,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString HISTORY_NO_EXPAND_CHARS = 
-    new ReadlineConstString(13, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString HISTORY_NO_EXPAND_CHARS =
+    new ReadlineConstString(13, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -313,11 +313,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstString HISTORY_SEARCH_DELIMITERS = 
-    new ReadlineConstString(14, new ReadlineLibrary[] 
+
+  public final static ReadlineConstString HISTORY_SEARCH_DELIMITERS =
+    new ReadlineConstString(14, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -329,11 +329,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_READLINE_VERSION = 
-    new ReadlineConstInt(0, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_READLINE_VERSION =
+    new ReadlineConstInt(0, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -345,11 +345,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_GNU_READLINE_P = 
-    new ReadlineConstInt(1, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_GNU_READLINE_P =
+    new ReadlineConstInt(1, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -361,11 +361,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_READLINE_STATE = 
-    new ReadlineConstInt(2, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_READLINE_STATE =
+    new ReadlineConstInt(2, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -377,11 +377,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_EDITING_MODE = 
-    new ReadlineConstInt(3, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_EDITING_MODE =
+    new ReadlineConstInt(3, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -394,11 +394,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Getline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_INSERT_MODE = 
-    new ReadlineConstInt(4, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_INSERT_MODE =
+    new ReadlineConstInt(4, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Getline});
 
 
@@ -412,11 +412,11 @@ public class Readline {
 	  <li>Editline</li>
 	  <li>Getline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_POINT = 
-    new ReadlineConstInt(5, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_POINT =
+    new ReadlineConstInt(5, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline,
        ReadlineLibrary.Editline, ReadlineLibrary.Getline});
 
@@ -431,11 +431,11 @@ public class Readline {
 	  <li>Editline</li>
 	  <li>Getline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_END = 
-    new ReadlineConstInt(6, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_END =
+    new ReadlineConstInt(6, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline,
        ReadlineLibrary.Editline, ReadlineLibrary.Getline});
 
@@ -448,11 +448,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_MARK = 
-    new ReadlineConstInt(7, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_MARK =
+    new ReadlineConstInt(7, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -464,11 +464,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_DONE = 
-    new ReadlineConstInt(8, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_DONE =
+    new ReadlineConstInt(8, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -480,11 +480,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_PENDING_INPUT = 
-    new ReadlineConstInt(9, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_PENDING_INPUT =
+    new ReadlineConstInt(9, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -496,11 +496,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_DISPATCHING = 
-    new ReadlineConstInt(10, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_DISPATCHING =
+    new ReadlineConstInt(10, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -512,11 +512,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_EXPLICIT_ARG = 
-    new ReadlineConstInt(11, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_EXPLICIT_ARG =
+    new ReadlineConstInt(11, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -528,11 +528,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_NUMERIC_ARG = 
-    new ReadlineConstInt(12, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_NUMERIC_ARG =
+    new ReadlineConstInt(12, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -544,11 +544,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_ERASE_EMPTY_LINE = 
-    new ReadlineConstInt(13, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_ERASE_EMPTY_LINE =
+    new ReadlineConstInt(13, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -560,11 +560,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_ALREADY_PROMPTED = 
-    new ReadlineConstInt(14, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_ALREADY_PROMPTED =
+    new ReadlineConstInt(14, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -576,11 +576,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_NUM_CHARS_TO_READ = 
-    new ReadlineConstInt(15, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_NUM_CHARS_TO_READ =
+    new ReadlineConstInt(15, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -592,11 +592,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_CATCH_SIGNALS = 
-    new ReadlineConstInt(16, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_CATCH_SIGNALS =
+    new ReadlineConstInt(16, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -608,11 +608,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_CATCH_SIGWINCH = 
-    new ReadlineConstInt(17, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_CATCH_SIGWINCH =
+    new ReadlineConstInt(17, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -624,11 +624,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_FILENAME_COMPLETION_DESIRED = 
-    new ReadlineConstInt(18, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_FILENAME_COMPLETION_DESIRED =
+    new ReadlineConstInt(18, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -640,11 +640,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_FILENAME_QUOTING_DESIRED = 
-    new ReadlineConstInt(19, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_FILENAME_QUOTING_DESIRED =
+    new ReadlineConstInt(19, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -656,11 +656,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_ATTEMPTED_COMPLETION_OVER = 
-    new ReadlineConstInt(20, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_ATTEMPTED_COMPLETION_OVER =
+    new ReadlineConstInt(20, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -673,11 +673,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_COMPLETION_TYPE = 
-    new ReadlineConstInt(21, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_COMPLETION_TYPE =
+    new ReadlineConstInt(21, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -690,11 +690,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_COMPLETION_APPEND_CHARACTER = 
-    new ReadlineConstInt(22, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_COMPLETION_APPEND_CHARACTER =
+    new ReadlineConstInt(22, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -706,11 +706,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_COMPLETION_SUPPRESS_APPEND = 
-    new ReadlineConstInt(23, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_COMPLETION_SUPPRESS_APPEND =
+    new ReadlineConstInt(23, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -723,11 +723,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_COMPLETION_QUERY_ITEMS = 
-    new ReadlineConstInt(24, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_COMPLETION_QUERY_ITEMS =
+    new ReadlineConstInt(24, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -739,11 +739,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_COMPLETION_MARK_SYMLINK_DIRS = 
-    new ReadlineConstInt(25, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_COMPLETION_MARK_SYMLINK_DIRS =
+    new ReadlineConstInt(25, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -755,11 +755,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_IGNORE_COMPLETION_DUPLICATES = 
-    new ReadlineConstInt(26, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_IGNORE_COMPLETION_DUPLICATES =
+    new ReadlineConstInt(26, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -772,11 +772,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt RL_INHIBIT_COMPLETION = 
-    new ReadlineConstInt(27, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt RL_INHIBIT_COMPLETION =
+    new ReadlineConstInt(27, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -789,11 +789,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt HISTORY_BASE = 
-    new ReadlineConstInt(28, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt HISTORY_BASE =
+    new ReadlineConstInt(28, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -806,11 +806,11 @@ public class Readline {
 	  <li>GNU-Readline</li>
 	  <li>Editline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt HISTORY_LENGTH = 
-    new ReadlineConstInt(29, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt HISTORY_LENGTH =
+    new ReadlineConstInt(29, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline, ReadlineLibrary.Editline});
 
 
@@ -822,11 +822,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt HISTORY_MAX_ENTRIES = 
-    new ReadlineConstInt(30, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt HISTORY_MAX_ENTRIES =
+    new ReadlineConstInt(30, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -838,11 +838,11 @@ public class Readline {
         <ul>
 	  <li>GNU-Readline</li>
         </ul>
-     </p>     
+     </p>
   */
-  
-  public final static ReadlineConstInt HISTORY_QUOTES_EXPANSION = 
-    new ReadlineConstInt(31, new ReadlineLibrary[] 
+
+  public final static ReadlineConstInt HISTORY_QUOTES_EXPANSION =
+    new ReadlineConstInt(31, new ReadlineLibrary[]
       {ReadlineLibrary.GnuReadline});
 
 
@@ -890,7 +890,7 @@ public class Readline {
   /**
      Load an implementing backing library. This method might throw an
      UnsatisfiedLinkError in case the native libary is not found in the
-     library path. If you want to have a portable program, just catch and 
+     library path. If you want to have a portable program, just catch and
      ignore that error. JavaReadline will then just use the pure Java fallback
      solution.
 
@@ -932,7 +932,7 @@ public class Readline {
   */
 
   public static void initReadline(String applicationName) {
-    if (iLib == ReadlineLibrary.GnuReadline || 
+    if (iLib == ReadlineLibrary.GnuReadline ||
 	iLib == ReadlineLibrary.Editline ||
 	iLib == ReadlineLibrary.Getline)
       initReadlineImpl(applicationName);
@@ -960,8 +960,9 @@ public class Readline {
      @param prompt Prompt to display
      @return The string the user entered or 'null' if there was no input.
      @throws EOFException on end-of-file, i.e. CTRL-d input.
+     @throws java.io.UnsupportedEncodingException
      @see #readline(String,boolean)
-     @see #addHistory()
+     @see #addToHistory(String)
   */
   public static String readline(String prompt) throws EOFException,
                                     IOException, UnsupportedEncodingException {
@@ -979,11 +980,12 @@ public class Readline {
                       automatically; <tt>false</tt> to refrain from
                       adding the line to the history. (You can manually
                       add the line to the history by calling
-                      <tt>addHistory()</tt>.)
+                      <tt>addToHistory()</tt>.)
      @return The string the user entered or 'null' if there was no input.
      @throws EOFException on end-of-file, i.e. CTRL-d input.
+     @throws java.io.UnsupportedEncodingException
      @see #readline(String)
-     @see #addHistory()
+     @see #addToHistory(String)
   */
 
   public static String readline(String prompt, boolean addToHist)
@@ -1025,12 +1027,12 @@ public class Readline {
      </p>
 
      @param line  The line to add to the history
-     @throws UnsupportOperationException if underlying library doesn't support
+     @throws UnsupportedOperationException if underlying library doesn't support
                                          a history
   */
 
   public static void addToHistory(String line) {
-      if (iLib == ReadlineLibrary.GnuReadline || 
+      if (iLib == ReadlineLibrary.GnuReadline ||
 	  iLib == ReadlineLibrary.Editline ||
 	  iLib == ReadlineLibrary.Getline)
         addToHistoryImpl(line);
@@ -1051,7 +1053,7 @@ public class Readline {
      </p>
 
      @param collection  where to store the history
-     @throws UnsupportOperationException if underlying library doesn't support
+     @throws UnsupportedOperationException if underlying library doesn't support
                                          a history
   */
 
@@ -1105,7 +1107,7 @@ public class Readline {
         clearHistoryImpl();
       else if (iThrowException)
         throw new UnsupportedOperationException();
-  }      
+  }
 
   /////////////////////////////////////////////////////////////////////////////
 
@@ -1142,7 +1144,7 @@ public class Readline {
 
   /**
      Read keybindings and variable assignments from a file. This method is a
-     wrapper to rl_read_init_file(char *filename). Throws IOException if 
+     wrapper to rl_read_init_file(char *filename). Throws IOException if
      something goes wrong.
 
      <p>Supporting implementations:
@@ -1152,7 +1154,7 @@ public class Readline {
      </p>
 
      @param filename Name of file to read bindings from
-     @return void
+     @throws java.io.IOException
   */
 
   public static void readInitFile(String filename) throws IOException {
@@ -1200,6 +1202,8 @@ public class Readline {
      </p>
 
      @param filename Name of history file to read
+     @throws java.io.EOFException
+     @throws java.io.UnsupportedEncodingException
      */
 
   public static void readHistoryFile(String filename)
@@ -1224,6 +1228,8 @@ public class Readline {
      </p>
 
      @param filename Name of history file to write
+     @throws java.io.EOFException
+     @throws java.io.UnsupportedEncodingException
   */
 
   public static void writeHistoryFile(String filename)
@@ -1251,7 +1257,7 @@ public class Readline {
 
      @param rlc An object implementing the ReadlineCompleter interface
   */
-    
+
   public static void setCompleter(ReadlineCompleter rlc) {
     iCompleter = rlc;
     if (iLib == ReadlineLibrary.GnuReadline ||
@@ -1268,7 +1274,7 @@ public class Readline {
 
      @return Current ReadlineCompleter object
   */
-    
+
   public static ReadlineCompleter getCompleter() {
     return iCompleter;
   }
@@ -1286,12 +1292,12 @@ public class Readline {
      </p>
 
   */
-    
+
   public static void cleanup() {
     if (iLib == ReadlineLibrary.GnuReadline ||
                                              iLib == ReadlineLibrary.Editline) {
       cleanupReadlineImpl();
-    }      
+    }
   }
 
   /////////////////////////////////////////////////////////////////////////////
@@ -1308,7 +1314,7 @@ public class Readline {
 	  <li>Editline</li>
         </ul>
      </p>
-
+     @return if we have a terminal.
    */
 
    public static boolean hasTerminal() {
@@ -1332,9 +1338,10 @@ public class Readline {
      </p>
 
      @param wordBreakCharacters A string of word break characters
+     @throws java.io.UnsupportedEncodingException
   */
-    
-  public static void 
+
+  public static void
     setWordBreakCharacters(String wordBreakCharacters)
                               throws UnsupportedEncodingException {
     if (iLib == ReadlineLibrary.GnuReadline || iLib == ReadlineLibrary.Editline)
@@ -1354,9 +1361,9 @@ public class Readline {
 	  <li>Editline</li>
         </ul>
      </p>
-
+     @return word break characters
   */
-    
+
   public static String getWordBreakCharacters() {
     if (iLib == ReadlineLibrary.GnuReadline || iLib == ReadlineLibrary.Editline)
       return getWordBreakCharactersImpl();
@@ -1370,7 +1377,7 @@ public class Readline {
 
   /**
      Query the current line buffer. This returns the current content of
-     the internal line buffer. You might need this in a 
+     the internal line buffer. You might need this in a
      {@link ReadlineCompleter} implementation to access the full text
      given so far.
 
@@ -1380,8 +1387,9 @@ public class Readline {
 	  <li>Editline</li>
         </ul>
      </p>
+     @return current line buffer.
   */
-    
+
   public static String getLineBuffer() {
     if (iLib == ReadlineLibrary.GnuReadline || iLib == ReadlineLibrary.Editline)
       return getLineBufferImpl();
@@ -1424,13 +1432,13 @@ public class Readline {
 
     @param encoding encoding to use
   */
-    
+
   public static void setEncoding(String encoding) {
       iEncoding = encoding;
   }
 
   /////////////////////////////////////////////////////////////////////////////
-  
+
   /**
      Query current encoding of fallback BufferedReader.
 
@@ -1486,9 +1494,10 @@ public class Readline {
      @param c symbolic constant of readline-variable
      @param value new value of readline-variable
      @return old value of readline-variable
+     * @throws java.io.UnsupportedEncodingException
   */
 
-  public static String setVar(ReadlineConstString c, String value) throws 
+  public static String setVar(ReadlineConstString c, String value) throws
                                                 UnsupportedEncodingException {
     if (c.isSupported(iLib))
       return setVarStringImpl(c.getNumber(),value);
@@ -1505,9 +1514,10 @@ public class Readline {
 
      @param c symbolic constant of readline-variable
      @return value of variable
+     @throws java.io.UnsupportedEncodingException
   */
 
-  public static String getVar(ReadlineConstString c) throws 
+  public static String getVar(ReadlineConstString c) throws
                                                 UnsupportedEncodingException {
     if (c.isSupported(iLib))
       return getVarStringImpl(c.getNumber());
@@ -1570,7 +1580,7 @@ public class Readline {
   /**
      Native implementation of getHistory
 
-     @see org.gnu.readline.Readline#getHistory()
+     @see org.gnu.readline.Readline#getHistory(Collection)
   */
 
   private native static void getHistoryImpl(Collection collection);
@@ -1590,7 +1600,7 @@ public class Readline {
   /**
      Native implementation of getHistoryLine
 
-     @see org.gnu.readline.Readline#getHistoryLine()
+     @see org.gnu.readline.Readline#getHistoryLine(int)
   */
 
   private native static String getHistoryLineImpl(int i);
@@ -1666,9 +1676,9 @@ public class Readline {
 
      @see org.gnu.readline.Readline#setCompleter(ReadlineCompleter rlc)
   */
-    
+
   private native static void setCompleterImpl(ReadlineCompleter rlc);
-    
+
   /////////////////////////////////////////////////////////////////////////////
 
   /**
@@ -1684,11 +1694,11 @@ public class Readline {
   /**
      Native implementation of setWordBreakCharacters()
 
-     @see 
+     @see
    org.gnu.readline.Readline#setWordBreakCharacters(String wordBreakCharacters)
   */
 
-  private native static void 
+  private native static void
     setWordBreakCharactersImpl(String wordBreakCharacters)
                               throws UnsupportedEncodingException;
 
@@ -1697,7 +1707,7 @@ public class Readline {
   /**
      Native implementation of setVar(ReadlineConstInt,int)
 
-     @see 
+     @see
    org.gnu.readline.Readline#setVar(ReadlineConstInt,int)
   */
 
@@ -1708,7 +1718,7 @@ public class Readline {
   /**
      Native implementation of getVar(ReadlineConstInt)
 
-     @see 
+     @see
    org.gnu.readline.Readline#getVar(ReadlineConstInt)
   */
 
@@ -1719,7 +1729,7 @@ public class Readline {
   /**
      Native implementation of setVar(ReadlineConstString,String)
 
-     @see 
+     @see
    org.gnu.readline.Readline#setVar(ReadlineConstString,String)
   */
 
@@ -1730,10 +1740,13 @@ public class Readline {
   /**
      Native implementation of getVar(ReadlineConstString)
 
-     @see 
+     @see
    org.gnu.readline.Readline#getVar(ReadlineConstString)
   */
 
   private native static String getVarStringImpl(int number)
                               throws UnsupportedEncodingException;
+
+    private Readline() {
+    }
 }

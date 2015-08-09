@@ -29,33 +29,33 @@ package org.gnu.readline;
 */
 
 public final class ReadlineLibrary {
-  
+
   /**
      Constant for fallback, pure Java implementation.
   */
 
-  public static final ReadlineLibrary PureJava = 
+  public static final ReadlineLibrary PureJava =
     new ReadlineLibrary("PureJava");
 
   /**
      Constant for GNU-Readline implementation.
   */
 
-  public static final ReadlineLibrary GnuReadline = 
+  public static final ReadlineLibrary GnuReadline =
     new ReadlineLibrary("JavaReadline");
 
   /**
      Constant for Editline implementation.
   */
 
-  public static final ReadlineLibrary Editline = 
+  public static final ReadlineLibrary Editline =
     new ReadlineLibrary("JavaEditline");
 
   /**
      Constant for Getline implementation.
   */
 
-  public static final ReadlineLibrary Getline = 
+  public static final ReadlineLibrary Getline =
     new ReadlineLibrary("JavaGetline");
 
   /**
@@ -86,7 +86,7 @@ public final class ReadlineLibrary {
 
   /**
      Return ReadlineLibrary-object with given name.
-     
+     @param name One of "GnuReadline", "Editline", "Getline", or "PureJava".
      @return one of the predefined constants
   */
 

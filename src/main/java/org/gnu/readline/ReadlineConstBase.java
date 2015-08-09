@@ -32,7 +32,7 @@ package org.gnu.readline;
 */
 
 class ReadlineConstBase {
-  
+
   /**
      Numeric number of readline-variable. In the native implementation,
      this number serves as an index into an array of variables. This
@@ -70,7 +70,7 @@ class ReadlineConstBase {
 
   /**
      Check if this readline-variable is supported.
-     
+
      @return true if supported
   */
 

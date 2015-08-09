@@ -35,7 +35,7 @@ package org.gnu.readline;
 */
 
 class ReadlineConstString extends ReadlineConstBase {
-  
+
   /**
      Constructor. The constructor is protected, since the class should not
      be used outside of the package.

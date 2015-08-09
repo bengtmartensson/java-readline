@@ -2,10 +2,10 @@
 // Created:       2001-02-22 15:50:22, erik
 // By:            <erik@skiinfo.fr>
 // Time-stamp:    <2001-02-23 11:19:11, erik>
-// 
+//
 // $Id: ReadlineCompleter.java,v 1.1 2001-12-27 11:08:05 Bablokb Exp $
-// 
-// Description:       
+//
+// Description:
 
 
 package org.gnu.readline;
@@ -42,7 +42,7 @@ public interface ReadlineCompleter {
    *      the readline library will beep to indicate that there is no
    *      known completion.</li>
    *  <li>if the completer returns a value for state=0 and
-   *      <code>null</code> for state=1, then there was exactly <em>one</em> 
+   *      <code>null</code> for state=1, then there was exactly <em>one</em>
    *      possible completion, that is immediately expanded on the command line.</li>
    *  <li>if the completer returns choices for states &gt;= 1, then these
    *      choices are displayed to the user to choose from.</li>

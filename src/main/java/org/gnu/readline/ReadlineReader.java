@@ -23,16 +23,18 @@ import java.io.UnsupportedEncodingException;
 public class ReadlineReader extends Reader {
 
   public static final String DEFAULT_PROMPT = "";
-  private StringBuffer iBuff;	
+  private StringBuffer iBuff;
   private String       iLineSeparator;
   private String iPrompt;
   private File iHistoryFile;
-  
+
   /**
    * Constructs a ReadlineReader object with the given prompt.
+     @param prompt
+     @param lib
    **/
-  
-  public ReadlineReader(String prompt,ReadlineLibrary lib) { 
+
+  public ReadlineReader(String prompt,ReadlineLibrary lib) {
     iBuff = new StringBuffer();
     setPrompt(prompt);
     Readline.load(lib);
@@ -42,6 +44,7 @@ public class ReadlineReader extends Reader {
 
   /**
    * Constructs a ReadlineReader object with the default prompt.
+     @param lib
    **/
 
   public ReadlineReader(ReadlineLibrary lib) {
@@ -51,7 +54,10 @@ public class ReadlineReader extends Reader {
   /**
    * Constructs a ReadlineReader object with an associated history
    * file.
-   **/
+     @param history
+     @param lib
+     @throws java.io.IOException
+   */
 
   public ReadlineReader(File history,ReadlineLibrary lib) throws IOException {
     this(DEFAULT_PROMPT,lib);
@@ -62,7 +68,11 @@ public class ReadlineReader extends Reader {
   /**
    * Constructs a ReadlineReader object with an associated history
    * file and prompt.
-   **/
+     @param prompt
+     @param history
+     @param lib
+     @throws java.io.IOException
+   */
 
   public ReadlineReader(String prompt, File history,ReadlineLibrary lib)
                                                          throws IOException {
@@ -72,15 +82,17 @@ public class ReadlineReader extends Reader {
 
   /**
    * Returns the current prompt.
+     @return current prompt
    **/
 
   public String getPrompt() {
     return iPrompt;
   }
-    
+
   /**
    * Sets the prompt to the given value.
-   **/
+     @param prompt
+   */
 
   public void setPrompt(String prompt) {
     iPrompt = prompt;
@@ -93,9 +105,12 @@ public class ReadlineReader extends Reader {
    * conjunction with such classes as BufferedReader, but it hasn't
    * been tested well enough to see if this will work well in all
    * cases.
-   **/
+   * @return Number of characters read.
+   * @throws java.io.IOException
+   */
 
-  public int read(char[] cbuf, int off, int len) 
+  @Override
+  public int read(char[] cbuf, int off, int len)
     throws IOException {
     try {
       if (iBuff.length() == 0) {
@@ -104,7 +119,7 @@ public class ReadlineReader extends Reader {
       }
       if (len > iBuff.length())
 	len = iBuff.length();
-      if (len == 0) 
+      if (len == 0)
 	return 0;
       char[] sbuf = iBuff.substring(0, len).toCharArray();
       System.arraycopy(sbuf, 0, cbuf, off, len);
@@ -120,8 +135,10 @@ public class ReadlineReader extends Reader {
   /**
    * Nullifies all buffers and writes history file if one was given
    * at construction time.
+     @throws java.io.IOException
    **/
 
+  @Override
   public void close()
     throws IOException {
     iBuff = null;
@@ -133,8 +150,8 @@ public class ReadlineReader extends Reader {
   }
 
   public static void main(String[] args) throws Exception {
-    java.io.BufferedReader rd = 
-      new java.io.BufferedReader(new 
+    java.io.BufferedReader rd =
+      new java.io.BufferedReader(new
 	  ReadlineReader("hmm ", new File("test"),ReadlineLibrary.GnuReadline));
     String line;
     try {
