@@ -36,7 +36,7 @@ public class TestCompleter implements ReadlineCompleter {
 
   public TestCompleter () {
   }
-  
+
 
   /**
      Return possible completion. Implements org.gnu.readline.ReadlineCompleter.

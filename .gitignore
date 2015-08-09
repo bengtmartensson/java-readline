@@ -1,3 +1,5 @@
 target
 *.so
 *~
+.rltest_history
+nbactions.xml

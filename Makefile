@@ -31,7 +31,8 @@ export
 
 # what to build   -------------------------------------------------------------
 
-T_LIBS    = JavaReadline JavaGetline
+#T_LIBS    = JavaReadline JavaGetline
+T_LIBS    = JavaReadline
 
 # java-compiler flavor   ------------------------------------------------------
 

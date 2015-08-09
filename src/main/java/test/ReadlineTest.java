@@ -18,10 +18,10 @@ import org.gnu.readline.*;
 
 /**
  * ReadlineTest.java
- * 
- * This class shows the usage of the readline wrapper. It will read lines 
+ *
+ * This class shows the usage of the readline wrapper. It will read lines
  * from standard input using the GNU-Readline library. You can use the
- * standard line editing keys. You can also define application specific 
+ * standard line editing keys. You can also define application specific
  * keys. Put this into your ~/.inputrc (or into whatever file $INPUTRC
  * points to) and see what happens if you press function keys F1 to F3:
  * <pre>
@@ -41,9 +41,9 @@ import org.gnu.readline.*;
  */
 
 public class ReadlineTest {
-  
+
   public ReadlineTest() {
-    
+
   }
 
   /**
@@ -53,15 +53,24 @@ public class ReadlineTest {
 
   public static void main(String[] args) {
     String line, libName;
-    
+
     // Readline.setThrowExceptionOnUnsupportedMethod(true);
-    
+
     if (args.length > 1)
       libName = args[1];
     else
       libName = "GnuReadline";
-		    
-    Readline.load(ReadlineLibrary.byName(libName));
+
+    ReadlineLibrary lib = ReadlineLibrary.byName(libName);
+    if (lib == null) {
+      System.err.println("Invalid library: " + libName);
+      System.exit(1);
+    }
+    try {
+      Readline.load(lib);
+    } catch (UnsatisfiedLinkError ignore_me) {
+      System.err.println("couldn't load readline lib. Using simple stdin.");
+    }
     System.out.println("initializing " + libName);
     Readline.initReadline("ReadLineTest"); // init, set app name, read inputrc
     System.out.println("... done");
@@ -83,7 +92,7 @@ public class ReadlineTest {
     } catch (Exception e) {
       System.err.println("Error reading history file!");
     }
-      
+
     // define some additional function keys
 
     Readline.parseAndBind("\"\\e[18~\":	\"Function key F7\"");
@@ -91,17 +100,17 @@ public class ReadlineTest {
 
     // Set word break characters
     try {
-      String breakChars = 
+      String breakChars =
 	Readline.getVar(Readline.RL_COMPLETER_WORD_BREAK_CHARACTERS);
       System.out.println("word-break-chars: " + breakChars);
-      breakChars = 
+      breakChars =
 	Readline.setVar(Readline.RL_COMPLETER_WORD_BREAK_CHARACTERS,"abc");
       System.out.println("word-break-chars: " + breakChars);
-      breakChars = 
+      breakChars =
 	Readline.getVar(Readline.RL_COMPLETER_WORD_BREAK_CHARACTERS);
       System.out.println("word-break-chars: " + breakChars);
       Readline.setWordBreakCharacters(" \t;");
-      breakChars = 
+      breakChars =
 	Readline.getVar(Readline.RL_COMPLETER_WORD_BREAK_CHARACTERS);
       System.out.println("word-break-chars: " + breakChars);
     } catch (UnsupportedEncodingException enc) {
@@ -118,7 +127,7 @@ public class ReadlineTest {
       System.err.println("Could not query library version");
       System.exit(0);
     }
-    
+
     // set test completer
 
     Readline.setCompleter(new TestCompleter());
