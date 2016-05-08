@@ -1,2 +1,7 @@
 org_gnu_readline_Readline.h
 *.o
+.deps
+.libs
+*.la
+*.lo
+

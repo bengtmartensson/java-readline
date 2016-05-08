@@ -3,3 +3,17 @@ target
 *~
 .rltest_history
 nbactions.xml
+Makefile.in
+aclocal.m4
+autom4te.cache
+missing
+compile
+m4/lt*
+lt*
+config.*
+configure
+depcomp
+install-sh
+m4/libtool.m4
+Makefile
+libtool
