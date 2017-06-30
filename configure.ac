@@ -6,6 +6,10 @@ AC_PREREQ([2.69])
 AC_INIT(JavaReadline, 0.8.2, [https://github.com/bengtmartensson/java-readline])
 AC_CONFIG_SRCDIR([src/main/native/org_gnu_readline_Readline.c])
 
+# Prevent autotools to peek in the parent and grandparent directory, see
+# https://lists.gnu.org/archive/html/bug-automake/2015-02/msg00005.html
+AC_CONFIG_AUX_DIR([.])
+
 AM_INIT_AUTOMAKE([foreign])
 LT_INIT([disable-static])
 
